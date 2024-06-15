@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-15T20:00:54 IST" name="Demo Project Regression Test Suite" finished-at="2024-06-15T20:01:01 IST" duration-ms="7420">
+  <suite started-at="2024-06-16T00:00:36 IST" name="Demo Project Regression Test Suite" finished-at="2024-06-16T00:00:42 IST" duration-ms="6525">
     <groups>
     </groups>
-    <test started-at="2024-06-15T20:00:54 IST" name="Login Page Test" finished-at="2024-06-15T20:01:01 IST" duration-ms="7420">
+    <test started-at="2024-06-16T00:00:36 IST" name="Login Page Test" finished-at="2024-06-16T00:00:42 IST" duration-ms="6525">
       <class name="com.demo.tests.SimpleFormPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.demo.tests.SimpleFormPageTest@4b79ac84]" started-at="2024-06-15T20:00:54 IST" name="setup" finished-at="2024-06-15T20:00:58 IST" duration-ms="4297" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.demo.tests.SimpleFormPageTest@21fd5faa]" started-at="2024-06-16T00:00:36 IST" name="setup" finished-at="2024-06-16T00:00:41 IST" duration-ms="5345" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="simpleFormLinkTest()[pri:1, instance:com.demo.tests.SimpleFormPageTest@4b79ac84]" started-at="2024-06-15T20:00:58 IST" name="simpleFormLinkTest" finished-at="2024-06-15T20:00:59 IST" duration-ms="911" status="PASS">
+        <test-method signature="simpleFormLinkTest()[pri:1, instance:com.demo.tests.SimpleFormPageTest@21fd5faa]" started-at="2024-06-16T00:00:41 IST" name="simpleFormLinkTest" finished-at="2024-06-16T00:00:42 IST" duration-ms="592" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- simpleFormLinkTest -->
-        <test-method signature="inputTextValidationTest()[pri:0, instance:com.demo.tests.SimpleFormPageTest@4b79ac84]" started-at="2024-06-15T20:00:59 IST" name="inputTextValidationTest" finished-at="2024-06-15T20:01:01 IST" depends-on-methods="com.demo.tests.SimpleFormPageTest.simpleFormLinkTest" duration-ms="1276" status="PASS">
+        <test-method signature="inputTextValidationTest()[pri:0, instance:com.demo.tests.SimpleFormPageTest@21fd5faa]" started-at="2024-06-16T00:00:42 IST" name="inputTextValidationTest" finished-at="2024-06-16T00:00:42 IST" depends-on-methods="com.demo.tests.SimpleFormPageTest.simpleFormLinkTest" duration-ms="222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inputTextValidationTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demo.tests.SimpleFormPageTest@4b79ac84]" started-at="2024-06-15T20:01:01 IST" name="tearDown" finished-at="2024-06-15T20:01:01 IST" duration-ms="627" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demo.tests.SimpleFormPageTest@21fd5faa]" started-at="2024-06-16T00:00:42 IST" name="tearDown" finished-at="2024-06-16T00:00:42 IST" duration-ms="230" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
