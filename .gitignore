@@ -1,0 +1,12 @@
+# Ignore compiled binaries
+*.exe
+*.dll
+
+# Ignore MacOS specific files
+.DS_Store
+
+# Ignore Node.js dependencies directory
+node_modules/
+
+# Ignore log files
+*.log
