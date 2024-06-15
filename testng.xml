@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Demo Project Test Regression Suite" thread-count="2" parallel="tests" verbose="4">
+
+	<listeners>
+		<listener class-name="com.demo.listeners.ExtentReportListener" />
+	</listeners>
+
+	<test name="Login Page Test">
+		<parameter name="browser" value="chrome" />
+		
+		<classes>
+			<class name="com.demo.tests.SimpleFormPageTest" />
+		</classes>		
+	</test>
+      
+
+</suite>
