@@ -28,11 +28,11 @@ public class DriverFactory {
 	}
     
 
-    public WebDriver initDriver(Properties prop) {
+    public WebDriver initDriver(Properties prop, String browserName) {
 
-        String browserName = prop.getProperty("browser");
-        
-        highlight = prop.getProperty("highlight");// "true"
+//        String browserName = prop.getProperty("browser");
+//        
+//        highlight = prop.getProperty("highlight");// "true"
 
         optionsManager = new OptionsManager(prop);
         
@@ -65,6 +65,7 @@ public class DriverFactory {
 
     public Properties initProp() {
         FileInputStream filePath = null;
+        
         prop = new Properties();
 
         String envname = System.getProperty("env");

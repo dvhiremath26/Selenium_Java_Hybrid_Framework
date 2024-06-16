@@ -28,7 +28,7 @@ public class BaseTest {
 		df = new DriverFactory();
 		prop = df.initProp();
 		
-		driver = df.initDriver(prop);
+		driver = df.initDriver(prop, browserName);
 		homePage = new HomePage(driver);
 	}
 	
