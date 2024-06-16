@@ -1,0 +1,26 @@
+pool:
+  name: SeleniumJava
+  demands: maven
+
+steps:
+- task: Maven@1
+  displayName: 'Maven pom.xml'
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean test -P sanity -Denv=qa'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mavenAuthenticateFeed: false
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
