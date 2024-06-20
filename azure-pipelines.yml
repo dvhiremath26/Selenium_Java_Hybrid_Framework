@@ -1,5 +1,6 @@
 #Multi-configuration and multi-agent job options are not exported to YAML. Configure these options using documentation guidance: https://docs.microsoft.com/vsts/pipelines/process/phases
 
+
 pool:
   name: Azure Pipelines
   demands: maven
@@ -11,11 +12,19 @@ steps:
 - task: Maven@1
   displayName: 'Maven pom.xml'
   inputs:
-    versionSpec: '11'
-    mavenPomFile: '$(Parameters.mavenPOMFile)'
+    mavenPomFile: 'pom.xml'
     goals: 'clean test -P sanity -Denv=qa'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     mavenAuthenticateFeed: false
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: pom.xml
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
