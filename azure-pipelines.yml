@@ -13,7 +13,7 @@ steps:
   displayName: 'Maven pom.xml'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean test -P sanity -Denv=qa'
+    goals: 'clean test -P sanity -Denv=qa -X'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     mavenAuthenticateFeed: false
 
