@@ -20,9 +20,9 @@ public class SimpleFormPageTest extends BaseTest {
 	
 	
 	
-	@Description("simple form page title test......")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(enabled=true, priority = 1)
+//	@Description("simple form page title test......")
+//	@Severity(SeverityLevel.NORMAL)
+	@Test
 	public void simpleFormLinkTest() {
 		simpleFormPage = homePage.clickOnSimpleFormLink();
 		String pageTitle = simpleFormPage.getPageTitle();
@@ -34,9 +34,8 @@ public class SimpleFormPageTest extends BaseTest {
 	
 	@Description("Inpput Text validation text......")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(enabled=true, dependsOnMethods = {"simpleFormLinkTest"})
+	@Test(dependsOnMethods = {"simpleFormLinkTest"})
 	public void inputTextValidationTest() {
-//		simpleFormPage = homePage.clickOnSimpleFormLink();
 		simpleFormPage.typeTextIntoEnterMessageField(AppConstants.TEXT_MESSAGE);
 		simpleFormPage.clickOnGetCheckedValueButton();
 		String outputText = simpleFormPage.retrieveEnteredText();

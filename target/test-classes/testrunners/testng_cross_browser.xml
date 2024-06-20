@@ -2,6 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="CrossBrowserSuite" parallel="tests" thread-count="2">
+
+	<listeners>
+		<listener class-name="com.demo.listeners.ExtentReportListener" />
+	</listeners>
+	
     <!-- Chrome Test Suite -->
     <test name="ChromeTests">
         <parameter name="browser" value="chrome"/>

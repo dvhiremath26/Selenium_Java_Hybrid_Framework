@@ -19,8 +19,7 @@ public class HomePage {
 
 
 
-	public HomePage(WebDriver driver) {
-		
+	public HomePage(WebDriver driver) {		
 		this.driver = driver;
 		eleUtil = new ElementUtil(driver);
 	}
