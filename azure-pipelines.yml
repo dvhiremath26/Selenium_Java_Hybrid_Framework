@@ -1,4 +1,5 @@
 pool:
+  vmImage: 'windows-latest'
   name: Azure Pipelines
   demands: maven
 
