@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.Alert;
+//import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -417,16 +417,16 @@ public class ElementUtil {
 	 * @param timeOut
 	 * @return
 	 */
-	public Alert waitForJSAlert(int timeOut) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
-		return wait.until(ExpectedConditions.alertIsPresent());
-	}
-	
-	public Alert waitForJSAlert(int timeOut, int pollingTime) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut), Duration.ofSeconds(pollingTime));
-		return wait.until(ExpectedConditions.alertIsPresent());
-	}
-	
+//	public Alert waitForJSAlert(int timeOut) {
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+//		return wait.until(ExpectedConditions.alertIsPresent());
+//	}
+//	
+//	public Alert waitForJSAlert(int timeOut, int pollingTime) {
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut), Duration.ofSeconds(pollingTime));
+//		return wait.until(ExpectedConditions.alertIsPresent());
+//	}
+//	
 		
 
 	
@@ -493,15 +493,15 @@ public class ElementUtil {
 
 	}
 		
-	public Alert waitForJSAlertWithFluentWait(int timeOut, int pollingTime) {
-		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(timeOut))
-				.pollingEvery(Duration.ofSeconds(pollingTime))
-				.ignoring(NoAlertPresentException.class)
-				.withMessage("----time out is done...Js alert is not found...");
-		return wait.until(ExpectedConditions.alertIsPresent());
-	}
+//	public Alert waitForJSAlertWithFluentWait(int timeOut, int pollingTime) {
+//		
+//		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+//				.withTimeout(Duration.ofSeconds(timeOut))
+//				.pollingEvery(Duration.ofSeconds(pollingTime))
+//				.ignoring(NoAlertPresentException.class)
+//				.withMessage("----time out is done...Js alert is not found...");
+//		return wait.until(ExpectedConditions.alertIsPresent());
+//	}
 	
 	public void waitForFrameWithFluentWait(String frameNameOrID, int timeOut, int pollingTime) {
 		
