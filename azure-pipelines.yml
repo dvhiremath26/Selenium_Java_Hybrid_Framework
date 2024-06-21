@@ -36,5 +36,5 @@ steps:
 - task: PublishPipelineArtifact@1
   displayName: 'Publish HTML Reports'
   inputs:
-    targetPath: 'reports/TestExecutionReport.html'
+    targetPath: '$(build.artifactstagingdirectory)/reports/TestExecutionReport.html'
     artifact: 'html-reports'
