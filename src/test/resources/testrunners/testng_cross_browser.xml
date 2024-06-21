@@ -7,6 +7,15 @@
 		<listener class-name="com.demo.listeners.ExtentReportListener" />
 	</listeners>
 	
+	 <!-- Safari Test Suite -->
+    <test name="EdgeTests">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="com.demo.tests.SimpleFormPageTest"/>
+            <!-- Add more test classes as needed -->
+        </classes>
+    </test>
+	
     <!-- Chrome Test Suite -->
     <test name="ChromeTests">
         <parameter name="browser" value="chrome"/>
@@ -16,12 +25,4 @@
         </classes>
     </test>
 
-    <!-- Edge Test Suite -->
-    <test name="EdgeTests">
-        <parameter name="browser" value="edge"/>
-        <classes>
-            <class name="com.demo.tests.SimpleFormPageTest"/>
-            <!-- Add more test classes as needed -->
-        </classes>
-    </test>
 </suite>

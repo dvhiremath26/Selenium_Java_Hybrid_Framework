@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 
 
@@ -46,6 +47,10 @@ public class DriverFactory {
             case "edge":
             	tlDriver.set(new EdgeDriver(optionsManager.getEdgeOptions()));
                 break;
+                
+            case "safari":
+    			tlDriver.set(new SafariDriver());
+    			break;
 
             default:
                 System.out.println("Plz pass the right browser...." + browserName);
