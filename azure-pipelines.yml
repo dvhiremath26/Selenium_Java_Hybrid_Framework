@@ -1,34 +1,75 @@
+trigger:
+- master
+
 pool:
   vmImage: 'windows-latest'
-  name: Azure Pipelines
-  demands: maven
 
 variables:
   mavenPOMFile: 'pom.xml'
 
-steps:
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: Build
+    displayName: 'Build Job'
+    steps:
 
-- task: Maven@3
-  displayName: 'Maven pom.xml'
-  inputs:
-    mavenPomFile: '$(mavenPOMFile)'
-    goals: 'clean test -P regression -Denv=qa'
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
-    mavenAuthenticateFeed: false
-    options: '-e -X'
+    - task: Maven@3
+      displayName: 'Maven pom.xml'
+      inputs:
+        mavenPomFile: '$(mavenPOMFile)'
+        goals: 'clean test -P regression -Denv=qa'
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.17'
+        mavenAuthenticateFeed: false
+        options: '-e -X'
 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '**/*.jar'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-  condition: succeededOrFailed()
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/*.jar'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+      condition: succeededOrFailed()
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-  condition: succeededOrFailed()
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+      condition: succeededOrFailed()
+
+- stage: DeployQA
+  displayName: 'Deploy to QA'
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    displayName: 'Deploy to QA'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - download: current
+      artifact: drop
+
+    - script: |
+        echo Deploying to QA environment
+        # Add your deployment script here
+      displayName: 'Deploy to QA'
+
+- stage: DeployProd
+  displayName: 'Deploy to Production'
+  dependsOn: DeployQA
+  jobs:
+  - job: Deploy
+    displayName: 'Deploy to Production'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - download: current
+      artifact: drop
+
+    - script: |
+        echo Deploying to Production environment
+        # Add your deployment script here
+      displayName: 'Deploy to Production'
