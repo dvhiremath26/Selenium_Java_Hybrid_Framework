@@ -12,7 +12,7 @@ steps:
   displayName: 'Maven pom.xml'
   inputs:
     mavenPomFile: '$(mavenPOMFile)'
-    goals: 'clean test -P regression -D env=stage'
+    goals: 'clean test -P cross-browser -D env=stage'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
