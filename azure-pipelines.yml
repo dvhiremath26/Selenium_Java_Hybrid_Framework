@@ -32,3 +32,9 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish HTML Reports'
+  inputs:
+    targetPath: '$(build.artifactstagingdirectory)/reports'
+    artifact: 'html-reports'
